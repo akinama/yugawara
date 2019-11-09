@@ -1,5 +1,4 @@
-using System;
-using System.Collections.Generic;
+using System.Numerics;
 using MessagePack;
 
 namespace Yugawara
@@ -18,7 +17,7 @@ namespace Yugawara
         public string TrainerAddress { get; set; }
         
         [Key(4)]
-        public int Deposit { get; set; }
+        public BigInteger Deposit { get; set; }
         
         [Key(5)]
         public int ExpireDate { get; set; }
