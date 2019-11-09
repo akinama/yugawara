@@ -5,6 +5,7 @@ using MagicOnion.Server;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Logging;
 
 
 namespace Yugawara
@@ -25,9 +26,11 @@ namespace Yugawara
                 })
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
-                    webBuilder.ConfigureKestrel(serverOptions =>
+                    webBuilder.ConfigureKestrel(serverOptions => serverOptions.AllowSynchronousIO = true)
+                        .ConfigureLogging(logging =>
                         {
-                            serverOptions.AllowSynchronousIO = true;
+                            logging.ClearProviders();
+                            logging.AddConsole();
                         })
                         .UseUrls("http://localhost:5432")
                         .UseStartup<Startup>();

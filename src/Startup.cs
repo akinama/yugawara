@@ -3,17 +3,31 @@ using MagicOnion;
 using MagicOnion.HttpGateway.Swagger;
 using MagicOnion.Server;
 using Microsoft.AspNetCore.Builder;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
 
-public class Startup
+namespace Yugawara
 {
-    // Inject MagicOnionServiceDefinition from DIl
-    public void Configure(IApplicationBuilder app, MagicOnionServiceDefinition magicOnion)
+    public class Startup
     {
-        app.UseMagicOnionSwagger(magicOnion.MethodHandlers, new SwaggerOptions("MagicOnion.Server", "Swagger Integration Test", "/")
-        {
-            // XmlDocumentPath = xmlPath
-        });
+        public IConfiguration Configuration { get; }
         
-        app.UseMagicOnionHttpGateway(magicOnion.MethodHandlers, new Channel("localhost:12345", ChannelCredentials.Insecure));
+        public Startup(IConfiguration configuration)
+        {
+            Configuration = configuration;
+        }
+        
+        // Inject MagicOnionServiceDefinition from DIl
+        public void Configure(IApplicationBuilder app, MagicOnionServiceDefinition magicOnion)
+        {
+            app.UseMagicOnionSwagger(magicOnion.MethodHandlers, new SwaggerOptions("MagicOnion.Server", "Swagger Integration Test", "/")
+            {
+                // XmlDocumentPath = xmlPath
+            });
+            
+            app.UseMagicOnionHttpGateway(magicOnion.MethodHandlers, new Channel("localhost:12345", ChannelCredentials.Insecure));
+        }
     }
 }
+
