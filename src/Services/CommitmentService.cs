@@ -38,10 +38,6 @@ namespace Yugawara
             var logs = await commitmentEvent.GetFilterChanges<CommitmentEvent>(filterAll);
             
             var commitment = new Commitment();
-
-            commitment.Address = logs[0].Event.Address;
-            commitment.TrainerAddress = logs[0].Event.TrainerAddress;
-            commitment.Deposit = logs[0].Event.Deposit;
             
             return UnaryResult(new List<Commitment> { commitment });
         }
