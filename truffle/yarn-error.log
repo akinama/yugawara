@@ -1,0 +1,36 @@
+Arguments: 
+  /Users/katagiri/.nodebrew/node/v10.16.0/bin/node /usr/local/Cellar/yarn/1.12.3/libexec/bin/yarn.js add openzeppelin-contracts
+
+PATH: 
+  /Users/katagiri/.wasmer/bin:/usr/local/opt/llvm/bin:/Users/katagiri/.cargo/bin:/Users/katagiri/.nodebrew/current/bin:/usr/local/opt/mysql@5.7/bin:/usr/local/opt/mysql-client/bin:/Users/katagiri/.exenv/shims:/Users/katagiri/.exenv/bin:/Users/katagiri/.rbenv/shims:/opt/chefdk/bin:/usr/local/Cellar/gradle/bin:/Library/Java/JavaVirtualMachines/jdk1.8.0_211.jdk/Contents/Home/bin:/usr/local/opt/libxml2/bin:/Users/katagiri/bin:/Users/katagiri/.bin:/Users/katagiri/.pyenv/shims:/Users/katagiri/.rbenv/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/bin:/sbin:/usr/local/Omnisharp/bin:/Applications/platform-tools:/Applications/android-sdk-macosx/tools:/usr/local/opt/go/libexec/bin:/Applications/neovim-dot-app/bin:/usr/local/opt/imagemagick@6/bin:/usr/local/google-cloud-sdk/bin:/usr/local/share/dotnet:/Users/katagiri/.dotnet/tools
+
+Yarn version: 
+  1.12.3
+
+Node version: 
+  10.16.0
+
+Platform: 
+  darwin x64
+
+Trace: 
+  Error: https://registry.yarnpkg.com/openzeppelin-contracts: Not found
+      at Request.params.callback [as _callback] (/usr/local/Cellar/yarn/1.12.3/libexec/lib/cli.js:65894:18)
+      at Request.self.callback (/usr/local/Cellar/yarn/1.12.3/libexec/lib/cli.js:129018:22)
+      at Request.emit (events.js:198:13)
+      at Request.<anonymous> (/usr/local/Cellar/yarn/1.12.3/libexec/lib/cli.js:129990:10)
+      at Request.emit (events.js:198:13)
+      at IncomingMessage.<anonymous> (/usr/local/Cellar/yarn/1.12.3/libexec/lib/cli.js:129912:12)
+      at Object.onceWrapper (events.js:286:20)
+      at IncomingMessage.emit (events.js:203:15)
+      at endReadableNT (_stream_readable.js:1129:12)
+      at process._tickCallback (internal/process/next_tick.js:63:19)
+
+npm manifest: 
+  No manifest
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile

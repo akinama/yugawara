@@ -4,3 +4,4 @@ obj/
 .terraform/
 *.tfstate
 *.tfstate.backup
+node_modules/
