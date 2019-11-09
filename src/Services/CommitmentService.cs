@@ -10,7 +10,7 @@ namespace Yugawara
     {
         public async Task<UnaryResult<List<Commitment>>> GetCommitments()
         {
-            var web3 = new Web3("http://mu-dev-quorum.japaneast.cloudapp.azure.com:22000");
+            var web3 = new Web3("http://127.0.0.1:8545/");
             
             var commitment = new Commitment();
 
