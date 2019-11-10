@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using MagicOnion;
 using MagicOnion.Server;
@@ -36,10 +37,23 @@ namespace Yugawara
             var filterAll = await commitmentEvent.CreateFilterAsync();
 
             var logs = await commitmentEvent.GetFilterChanges<Commitment>(filterAll);
+
+            if (logs.Count < 1)
+            {
+              return UnaryResult(new List<Commitment>());
+            }
             
-            var commitment = new Commitment();
+            await using (var defaultDbContext = new DefaultDbContext())
+            {
+              var commitment = logs.First().Event;
+
+              defaultDbContext.Add(commitment);
+
+              defaultDbContext.SaveChanges(true);
             
-            return UnaryResult(new List<Commitment> { commitment });
+              return UnaryResult(new List<Commitment> { commitment });
+            }
+            
         }
         
         private static readonly string Abi = $@"
