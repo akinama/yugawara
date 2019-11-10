@@ -1,5 +1,7 @@
 using System.Configuration;
+using System.Numerics;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Yugawara
 {
@@ -23,6 +25,14 @@ namespace Yugawara
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
+            
+            var converter = new ValueConverter<BigInteger, long>(    
+                model => (long)model,
+                provider => new BigInteger(provider));
+
+           builder.Entity<Commitment>()
+                .Property(e => e.Deposit)
+                .HasConversion(converter);
         }
     }
 }

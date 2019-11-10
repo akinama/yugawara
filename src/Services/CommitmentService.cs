@@ -35,7 +35,7 @@ namespace Yugawara
             
             var filterAll = await commitmentEvent.CreateFilterAsync();
 
-            var logs = await commitmentEvent.GetFilterChanges<CommitmentEvent>(filterAll);
+            var logs = await commitmentEvent.GetFilterChanges<Commitment>(filterAll);
             
             var commitment = new Commitment();
             

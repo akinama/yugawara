@@ -26,7 +26,7 @@ namespace Yugawara
                 // XmlDocumentPath = xmlPath
             });
             
-            app.UseMagicOnionHttpGateway(magicOnion.MethodHandlers, new Channel("localhost:12345", ChannelCredentials.Insecure));
+            app.UseMagicOnionHttpGateway(magicOnion.MethodHandlers, new Channel("0.0.0.0:12345", ChannelCredentials.Insecure));
         }
     }
 }

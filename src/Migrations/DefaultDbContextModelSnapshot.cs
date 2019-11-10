@@ -28,8 +28,8 @@ namespace Yugawara.Migrations
                     b.Property<string>("Address")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("Deposit")
-                        .HasColumnType("int");
+                    b.Property<long>("Deposit")
+                        .HasColumnType("bigint");
 
                     b.Property<int>("ExpireDate")
                         .HasColumnType("int");

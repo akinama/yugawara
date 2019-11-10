@@ -18,6 +18,6 @@ resource "azurerm_sql_firewall_rule" "yugawara" {
   name                = "YugawaraFirewallRule"
   resource_group_name = azurerm_resource_group.yugawara.name
   server_name         = azurerm_sql_server.yugawara.name
-  start_ip_address    = "58.91.45.177"
-  end_ip_address      = "58.91.45.177"
+  start_ip_address    = "218.227.113.161"
+  end_ip_address      = "218.227.113.161"
 }

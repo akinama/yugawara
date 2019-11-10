@@ -15,7 +15,7 @@ namespace Yugawara
         public static async Task Main(string[] args)
         {
             var magicOnionHost = MagicOnionHost.CreateDefaultBuilder()
-                .UseMagicOnion(new MagicOnionOptions(isReturnExceptionStackTraceInErrorDetail: true), new ServerPort("localhost", 12345, ServerCredentials.Insecure))
+                .UseMagicOnion(new MagicOnionOptions(isReturnExceptionStackTraceInErrorDetail: true), new ServerPort("0.0.0.0", 12345, ServerCredentials.Insecure))
                 .UseConsoleLifetime()
                 .Build();
 
@@ -32,7 +32,7 @@ namespace Yugawara
                             logging.ClearProviders();
                             logging.AddConsole();
                         })
-                        .UseUrls("http://localhost:5432")
+                        .UseUrls("http://0.0.0.0:5432")
                         .UseStartup<Startup>();
                 })
                 .Build();
